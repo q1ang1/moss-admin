@@ -1,0 +1,39 @@
+:root {
+  color-scheme: light;
+  font-family:
+    "IBM Plex Sans",
+    "Avenir Next",
+    "Segoe UI",
+    sans-serif;
+  background:
+    radial-gradient(circle at top center, rgba(11, 90, 88, 0.14), transparent 26%),
+    linear-gradient(180deg, #f5f7fb 0%, #eef3f6 100%);
+  color: #102432;
+  --brand-strong: #0b5a58;
+  --brand-soft: rgba(11, 90, 88, 0.12);
+  --ink-strong: #102432;
+  --ink-soft: #526277;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  font: inherit;
+}
