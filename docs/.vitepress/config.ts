@@ -32,7 +32,7 @@ export default defineConfig({
       }
     ],
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/your-name/moss-admin' }
+      { icon: 'github', link: 'https://github.com/q1ang1/moss-admin' }
     ]
   }
 })
