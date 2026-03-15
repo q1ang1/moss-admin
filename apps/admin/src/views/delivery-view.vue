@@ -29,8 +29,8 @@ const pipelineStages: RuleItem[] = [
     description: '在 PR 和 main push 上跑 lint、typecheck、test、build。'
   },
   {
-    title: 'Docs 部署',
-    description: 'main 更新后自动构建 docs，并发布到 GitHub Pages。'
+    title: '站点部署',
+    description: 'main 更新后自动构建管理台和 docs，根路径发布管理台，/docs 发布文档。'
   },
   {
     title: '后续 release',

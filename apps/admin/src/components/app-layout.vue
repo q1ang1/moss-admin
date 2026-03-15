@@ -59,9 +59,9 @@ const currentSectionLabel = computed(
           建议下一步：
         </p>
         <ul>
-          <li>建 GitHub 仓库并配置 Pages Source 为 GitHub Actions</li>
-          <li>保护 `main`，所有改动走 PR</li>
-          <li>把真实业务列表页接进 `apps/admin`</li>
+          <li>把真实业务列表页和详情流接进这个管理台入口</li>
+          <li>文档统一放在 `/docs/`，避免和管理系统入口冲突</li>
+          <li>继续沉淀 `packages/ui` 里的业务底座组件</li>
         </ul>
       </div>
     </aside>
@@ -76,7 +76,7 @@ const currentSectionLabel = computed(
         </div>
         <div class="topbar-status">
           <span class="status-dot" />
-          <span>等待远程仓库接入</span>
+          <span>GitHub Pages 已接通</span>
         </div>
       </header>
 

@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 
 /**
- * Resolve the repository name during GitHub Pages builds so project pages use the correct base path.
+ * Resolve the docs base path so the public site can keep the admin app at the root entry.
  */
 function resolveBasePath() {
   if (process.env.GITHUB_ACTIONS !== 'true') {
@@ -9,7 +9,20 @@ function resolveBasePath() {
   }
 
   const repository = process.env.GITHUB_REPOSITORY?.split('/')[1]
-  return repository ? `/${repository}/` : '/'
+  return repository ? `/${repository}/docs/` : '/docs/'
+}
+
+/**
+ * Resolve the published admin URL so VitePress treats it as an external link during build.
+ */
+function resolveAdminLink() {
+  const [owner, repository] = process.env.GITHUB_REPOSITORY?.split('/') ?? []
+
+  if (owner && repository) {
+    return `https://${owner}.github.io/${repository}/`
+  }
+
+  return '/'
 }
 
 export default defineConfig({
@@ -19,6 +32,7 @@ export default defineConfig({
   base: resolveBasePath(),
   themeConfig: {
     nav: [
+      { text: '管理台', link: resolveAdminLink() },
       { text: '开始使用', link: '/guide/getting-started' },
       { text: '分支策略', link: '/process/branch-strategy' }
     ],
