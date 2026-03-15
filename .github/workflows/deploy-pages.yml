@@ -1,4 +1,4 @@
-name: Deploy Docs to GitHub Pages
+name: Deploy Admin and Docs to GitHub Pages
 
 on:
   push:
@@ -37,11 +37,23 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Build admin app
+        env:
+          GITHUB_ACTIONS: 'true'
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: pnpm --filter moss-admin run build
+
       - name: Build docs
         env:
           GITHUB_ACTIONS: 'true'
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: pnpm --filter moss-docs run build
+
+      - name: Assemble Pages artifact
+        run: |
+          mkdir -p .pages-dist/docs
+          cp -R apps/admin/dist/. .pages-dist/
+          cp -R docs/.vitepress/dist/. .pages-dist/docs/
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -49,7 +61,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: docs/.vitepress/dist
+          path: .pages-dist
 
   deploy:
     needs: build

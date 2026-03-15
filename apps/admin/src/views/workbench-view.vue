@@ -28,9 +28,9 @@ const metricItems: MetricItem[] = [
     tone: 'amber'
   },
   {
-    label: '下一步重点',
-    value: '接远程',
-    hint: '创建 moss-admin 仓库、连 origin、打开保护规则。',
+    label: '线上入口',
+    value: '已切换',
+    hint: '管理台走站点根路径，文档统一放在 /docs/。',
     tone: 'rose'
   }
 ]
@@ -67,7 +67,7 @@ const projectHighlights: string[] = [
   >
     <template #actions>
       <span class="status-pill">Turborepo 已接入</span>
-      <span class="status-pill status-pill--light">GitHub Pages 待连通</span>
+      <span class="status-pill status-pill--light">根路径就是管理台</span>
     </template>
 
     <section class="metrics-grid">

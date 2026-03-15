@@ -1,5 +1,5 @@
 import type { RouteRecordRaw } from 'vue-router'
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router'
 import DeliveryView from '../views/delivery-view.vue'
 import WorkbenchView from '../views/workbench-view.vue'
 
@@ -21,10 +21,20 @@ const routes: RouteRecordRaw[] = [
   }
 ]
 
+/**
+ * GitHub Pages is static hosting, so the deployed admin app uses hash history to avoid 404 on refresh.
+ */
+function resolveHistory() {
+  if (import.meta.env.BASE_URL !== '/') {
+    return createWebHashHistory(import.meta.env.BASE_URL)
+  }
+
+  return createWebHistory(import.meta.env.BASE_URL)
+}
+
 const router = createRouter({
-  history: createWebHistory(),
+  history: resolveHistory(),
   routes
 })
 
 export default router
-

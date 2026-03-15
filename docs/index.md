@@ -1,16 +1,18 @@
 # Moss Docs
 
-Moss Admin 的文档站入口。
+Moss Admin 的文档站入口，线上会发布在 `/docs/`。
 
 这个仓库当前已经具备：
 
 - `Turborepo` monorepo 结构
-- `apps/admin` 本地测试界面
+- `apps/admin` 管理系统演示界面
 - `packages/ui` 共享 UI 包
 - `docs` 文档站
 - GitHub Actions 的 CI 与 Pages 部署工作流
 
 你可以先在本地把界面和结构跑起来，再去 GitHub 新建远程仓库并连接。
+现在默认访问的就是管理系统首页：[https://q1ang1.github.io/moss-admin/](https://q1ang1.github.io/moss-admin/)
+文档入口放在这里：[https://q1ang1.github.io/moss-admin/docs/](https://q1ang1.github.io/moss-admin/docs/)
 
 ## 现在最适合做的事
 

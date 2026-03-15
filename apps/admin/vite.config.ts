@@ -2,7 +2,20 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
+/**
+ * Resolve the admin app base path so GitHub Pages opens the management shell by default.
+ */
+function resolveBasePath() {
+  if (process.env.GITHUB_ACTIONS !== 'true') {
+    return '/'
+  }
+
+  const repository = process.env.GITHUB_REPOSITORY?.split('/')[1]
+  return repository ? `/${repository}/` : '/'
+}
+
 export default defineConfig({
+  base: resolveBasePath(),
   plugins: [vue()],
   resolve: {
     alias: {
