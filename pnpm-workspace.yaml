@@ -4,6 +4,7 @@ packages:
   - docs
 
 catalog:
+  '@playwright/test': 1.58.2
   '@eslint/js': 10.0.1
   '@types/node': 25.5.0
   '@vitejs/plugin-vue': 6.0.5

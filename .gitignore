@@ -4,6 +4,13 @@ node_modules
 .artifacts
 dist
 coverage
+blob-report
+playwright-report
+test-results
+*.tsbuildinfo
+.vitepress/cache
+.vitepress/temp
+docs/.vitepress/cache
 .DS_Store
 *.local
 *.log
